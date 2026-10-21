@@ -1,0 +1,11 @@
+function expandedForm(num) {
+  return num
+    .toString()
+    .split('')
+    .map((digit, index, arr) => {
+      if (digit === '0') return '';
+      return digit + '0'.repeat(arr.length - 1 - index);
+    })
+    .filter(val => val !== '')
+    .join(' + ');
+}
