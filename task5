@@ -1,0 +1,18 @@
+function primeFactors(n) {
+  let result = "";
+  for (let factor = 2; factor <= n; factor++) {
+    let count = 0;
+       while (n % factor === 0) {
+      count++;
+      n /= factor;
+    }
+    if (count > 0) {
+      if (count === 1) {
+        result += `(${factor})`;
+      } else {
+        result += `(${factor}**${count})`;
+      }
+    }
+  }
+  return result;
+}
