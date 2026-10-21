@@ -1,0 +1,11 @@
+function bingo(ticket, win) {
+  let miniWins = 0;
+  for (let [str, code] of ticket) {
+    const hasMiniWin = str.split('').some(char => char.charCodeAt(0) === code);
+    
+    if (hasMiniWin) {
+      miniWins++;
+    }
+  }
+  return miniWins >= win ? "Winner!" : "Loser!";
+}
