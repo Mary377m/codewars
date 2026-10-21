@@ -1,0 +1,23 @@
+function howManyTimes(time1, time2) {
+  const start = new Date(time1.replace(' ', 'T')).getTime();
+  const end = new Date(time2.replace(' ', 'T')).getTime();
+  let strikes = 0;
+
+  for (let t = start; t < end; t += 1000) {
+    const current = new Date(t);
+    const m = current.getMinutes();
+    const s = current.getSeconds();
+
+    if (m === 0) {
+      let h = current.getHours() % 12;
+      if (h === 0) h = 12;
+      if (s < h) {
+        strikes++;
+      }
+    } else if (m === 30 && s === 0) {
+      strikes++;
+    }
+  }
+
+  return strikes;
+}
