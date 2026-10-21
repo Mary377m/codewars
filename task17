@@ -1,0 +1,10 @@
+function cache(func) {
+  const stored = {};
+  return function(...args) {
+    const key = JSON.stringify(args);
+    if (!(key in stored)) {
+      stored[key] = func(...args);
+    }
+    return stored[key];
+  };
+}
